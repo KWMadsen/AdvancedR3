@@ -15,7 +15,8 @@ Imports:
     dplyr,
     readr,
     rlang,
-    styler
+    styler,
+    targets
 Encoding: UTF-8
 Suggests: 
     gitcreds,
