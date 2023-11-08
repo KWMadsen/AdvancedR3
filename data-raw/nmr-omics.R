@@ -15,7 +15,7 @@ nmr_omics_dir <- here("data-raw/nmr-omics")
 fs::dir_create(nmr_omics_dir)
 
 download.file("https://zenodo.org/record/6597902/files/README.txt",
-              destfile = here(nmr_omics_dir, "README.txt")
+  destfile = here(nmr_omics_dir, "README.txt")
 )
 
 download.file(
@@ -56,7 +56,7 @@ subject_only <- lipidomics_full %>%
   slice(1:4) %>%
   pivot_longer(cols = -V4) %>%
   pivot_wider(names_from = V4, values_from = value) %>%
-  # There is a weird "​" before some of the numbers, so we have
+  # There is a weird "<U+200B>" before some of the numbers, so we have
   # extract just the number first before converting to numeric.
   mutate(Age = as.numeric(stringr::str_extract(Age, "\\d+"))) %>%
   rename_with(snakecase::to_snake_case)
@@ -71,4 +71,3 @@ lipidomics <- full_join(
 # Save to `data/` ---------------------------------------------------------
 
 readr::write_csv(lipidomics, here::here("data/lipidomics.csv"))
-

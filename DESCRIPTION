@@ -13,7 +13,9 @@ Imports:
     tidyr,
     usethis,
     dplyr,
-    readr
+    readr,
+    rlang,
+    styler
 Encoding: UTF-8
 Suggests: 
     gitcreds,
