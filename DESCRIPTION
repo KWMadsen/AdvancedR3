@@ -6,11 +6,12 @@ Imports:
     fs,
     here,
     knitr,
-    readr,
     readxl,
     rmarkdown,
     snakecase,
     stringr,
     tidyr,
-    usethis
+    usethis,
+    dplyr,
+    readr
 Encoding: UTF-8
