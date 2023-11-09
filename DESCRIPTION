@@ -17,7 +17,9 @@ Imports:
     rlang,
     styler,
     targets,
-    ggplot2
+    ggplot2,
+    tarchetypes,
+    quarto
 Encoding: UTF-8
 Suggests: 
     gitcreds,
