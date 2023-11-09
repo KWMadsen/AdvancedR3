@@ -22,7 +22,8 @@ Imports:
     quarto,
     workflows,
     parsnip,
-    recipes
+    recipes,
+    broom
     
 Encoding: UTF-8
 Suggests: 
