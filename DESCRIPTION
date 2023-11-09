@@ -16,7 +16,8 @@ Imports:
     readr,
     rlang,
     styler,
-    targets
+    targets,
+    ggplot2
 Encoding: UTF-8
 Suggests: 
     gitcreds,
