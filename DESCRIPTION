@@ -23,3 +23,5 @@ Suggests:
     renv
 URL: https://github.com/KWMadsen/AdvancedR3
 BugReports: https://github.com/KWMadsen/AdvancedR3/issues
+Depends: 
+    tidyverse
