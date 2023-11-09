@@ -13,17 +13,33 @@ editor:
 ## Header 1
 
 ```{r setup}
-#| include: false
-knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+source(here::here("R/functions.R"))
+lipidomics <- read_csv(here::here("data/lipidomics.csv"))
 ```
 
-```{r}
-# Code chunk
+## Basic statistics
+
+
+
+```{r basic-stats}
+#' Calculate descriptive statistics of each metabolite
+#'
+#' @param data Lipidomics dataset 
+#'
+#' @return "A dara.frame/tibble
+#' @export
+#'
+
+descriptive_stats <-   function(data) {
+    data %>%
+      dplyr::group_by(metabolite) %>%
+      dplyr::summarise(dplyr::across(value, list(mean = mean, sd = sd))) %>%
+      dplyr::mutate(dplyr::across(tidyselect::where(is.numeric), ~ round(.x, digits = 1)))
+  }
 ```
 
 ## This is poorly formatted
 
 -   This is item 1
 -   This is item 2
-
-
