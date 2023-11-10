@@ -1,6 +1,9 @@
 ---
 title: "Draft Quarto document"
-author: "Your Name"
+author:
+  - name: Kaja Madsen
+    affiliations:
+      - name: University of Southern Denmark
 format: html
 execute:
   echo: true

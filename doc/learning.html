@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your Name">
+<meta name="author" content="Kaja Madsen">
 
 <title>Draft Quarto document</title>
 <style>
@@ -113,16 +113,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    Kaja Madsen 
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            University of Southern Denmark
+          </p>
+      </div>
+    </div>
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Your Name </p>
-          </div>
-  </div>
-    
+      
   
     
   </div>
@@ -194,7 +201,7 @@ x recipes::fixed()  masks stringr::fixed()
 x dplyr::lag()      masks stats::lag()
 x yardstick::spec() masks readr::spec()
 x recipes::step()   masks stats::step()
-* Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
+* Use tidymodels_prefer() to resolve common conflicts.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"R/functions.R"</span>))</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>lipidomics <span class="ot">&lt;-</span> <span class="fu">tar_read</span>(lipidomics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
