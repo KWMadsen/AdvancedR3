@@ -67,3 +67,12 @@ add_original_metabolite_names <- function(model_results, data) {
 calculate_estimates(lipidomics)
 ```
 
+### Figure of model estimates
+
+```{r}
+model_estimates <- tar_read(df_model_estimates)
+```
+
+```{r}
+tar_read(fig_model_estimates)
+```
