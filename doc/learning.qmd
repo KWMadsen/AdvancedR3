@@ -5,8 +5,6 @@ author:
     affiliations:
       - name: University of Southern Denmark
 format: html
-execute:
-  echo: true
 editor:
   markdown: 
     wrap: 72
