@@ -98,3 +98,51 @@ tidy_model_output <- function(workflow_fittet_model){
     broom::tidy(exponentiate = TRUE)
 }
 
+
+#' Convert the long form dataset into a list of wide form data frames
+#'
+#' @param data lipidomics
+#'
+#' @return A list of data frames
+
+split_by_metabolite <- function(data) {
+  data %>%
+    column_values_to_snake_case(metabolite) %>%
+    dplyr::group_split(metabolite) %>%
+    purrr::map(metabolites_to_wider)
+}
+
+#' Generate the results of the model
+#'
+#' @param data The lipidomics dataset
+#'
+#' @return A data frame
+
+generate_model_results <- function(data) {
+  create_model_workflow(
+    parsnip::logistic_reg() %>%
+      parsnip::set_engine("glm"),
+    data %>%
+      create_recipe_spec(tidyselect::starts_with("metabolite_"))
+  ) %>%
+    parsnip::fit(data) %>%
+    tidy_model_output()
+}
+
+
+#' Add the original metabolite names (not as snakecase) to the model results
+#'
+#' @param model_results The data frame with the model results
+#' @param data The original, unprocessed lipidomics dataset
+#'
+#' @return A data frame
+
+add_original_metabolite_names <- function(model_results, data) {
+  data %>%
+    dplyr::mutate(term = metabolite) %>%
+    column_values_to_snake_case(term) %>%
+    dplyr::mutate(term = stringr::str_c("metabolite_", term)) %>%
+    dplyr::distinct(term, metabolite) %>%
+    dplyr::right_join(model_results, by = "term")
+}
+
