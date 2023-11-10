@@ -24,7 +24,6 @@ Imports:
     parsnip,
     recipes,
     broom
-    
 Encoding: UTF-8
 Suggests: 
     gitcreds,
@@ -34,3 +33,4 @@ BugReports: https://github.com/KWMadsen/AdvancedR3/issues
 Depends: 
     tidyverse,
     tidymodels
+License: CC BY 4.0

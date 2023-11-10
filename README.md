@@ -9,6 +9,8 @@ TODO: Add more to the title of your project here
 
 # {{ AdvancedR3 }}:
 
+Check out the project's [website](kwmadsen.github.io/AdvancedR3/)
+
 TODO: Give a brief description of what your project is about
 
 This project is to learn R3
