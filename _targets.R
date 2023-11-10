@@ -49,11 +49,11 @@ tar_source()
 
 # Replace the target list below with your own:
 list(
-    tar_target(
-      name = file,
-      command = here::here("data/lipidomics.csv"),
-      format = "file"
-    ),
+  tar_target(
+    name = file,
+    command = here::here("data/lipidomics.csv"),
+    format = "file"
+  ),
   tar_target(
     name = lipidomics,
     command = readr::read_csv(file, show_col_types = FALSE)
@@ -69,5 +69,10 @@ list(
   tar_quarto(
     name = quarto_doc,
     path = "doc/learning.qmd"
+  ),
+  tar_target(
+    name = df_model_estimates,
+    command = calculate_estimates(lipidomics)
   )
+
 )
