@@ -33,96 +33,7 @@ tar_read(df_stats_by_metabolite) %>%
 tar_read(fig_metabolite_distribution)
 ```
 
-##building the model
-
-```{r}
-log_reg_specs <- logistic_reg() %>%
-  set_engine("glm")
-log_reg_specs
-```
-
-
-
-```{r}
-lipidomics %>%
-  column_values_to_snake_case()
-```
-
-```{r}
-lipidomics %>%
-  column_values_to_snake_case()
-```
-
-```{r}
-lipidomics %>%
-  metabolites_to_wider()
-```
-
-
-```{r}
-recipe(class ~ metabolite_lipid_ch_3_1 + age + gender, data = lipidomics_wide)
-```
-
-```{r}
-recipe(lipidomics_wide) %>%
-  update_role(metabolite_lipid_ch_3_1, age, gender, new_role = "predictor") %>%
-  update_role(class, new_role = "outcome") %>%
-  step_normalize(starts_with("metabolite_"))
-```
-```{r}
-recipe_specs <- lipidomics_wide %>%
-  create_recipe_spec(metabolite_lipid_ch_3_1)
-recipe_specs
-```
-
-
-```{r}
-workflow() %>%
-  add_model(log_reg_specs) %>%
-  add_recipe(recipe_specs)
-```
-```{r}
-model_workflow <- create_model_workflow(
-  logistic_reg() %>%
-    set_engine("glm"),
-  lipidomics_wide %>%
-    create_recipe_spec(metabolite_lipid_ch_3_1)
-)
-model_workflow
-```
-```{r}
-fittet_model <- model_workflow %>%
-  fit(lipidomics_wide)
-fittet_model
-```
-```{r}
-fittet_model %>%
-  extract_fit_parsnip() %>%
-  tidy(exponentiate = TRUE)
-```
-
-```{r}
-fittet_model %>%
-  tidy_model_output()
-```
-
-```{r}
-create_model_workflow(
-  logistic_reg() %>%
-    set_engine("glm"),
-  lipidomics_wide %>%
-    create_recipe_spec(metabolite_lipid_ch_3_1)
-) %>%
-  fit(lipidomics_wide) %>%
-  tidy_model_output()
-```
-
 ## Running multiple models
-
-```{r}
-lipidomics %>%
-  split_by_metabolite()
-```
 
 
 ```{r}
@@ -151,3 +62,8 @@ add_original_metabolite_names <- function(model_results, data) {
     dplyr::right_join(model_results, by = "term")
 }
 ```
+
+```{r}
+calculate_estimates(lipidomics)
+```
+
